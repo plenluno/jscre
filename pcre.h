@@ -86,7 +86,7 @@ int jsRegExpExecute(const JSRegExp*,
     const UChar* subject, int subjectLength, int startOffset,
     int* offsetsVector, int offsetsVectorLength);
 
-void jsRegExpFree(JSRegExp* regexp);
+void jsRegExpFree(JSRegExp* regexp, free_t* free_function);
 
 } }  // namespace dart::jscre
 
