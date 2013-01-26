@@ -14,17 +14,23 @@ set(jscre-src
 )
 
 ## jscre-cflags
-set(jscre-cflags
-    -fno-rtti
-    -fno-exceptions
-)
-
-if(APPLE)
+if(UNIX)
     set(jscre-cflags
-        ${jscre-cflags}
-        -Wno-null-dereference
+        -fno-rtti
+        -fno-exceptions
     )
-endif(APPLE)
+
+    if(APPLE)
+        set(jscre-cflags
+            ${jscre-cflags}
+            -Wno-null-dereference
+        )
+    endif(APPLE)
+else(UNIX)
+    set(jscre-cflags
+        /W0
+    )
+endif(UNIX)
 
 string(REPLACE ";" " " jscre-cflags "${jscre-cflags}")
 
