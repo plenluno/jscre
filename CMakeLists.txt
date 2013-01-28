@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(jscre)
 
-# variables ----------------------------------------------------------------------------------------
+# variables --------------------------------------------------------------------
 
 ## jscre-src
 set(jscre-src
@@ -28,13 +28,13 @@ if(UNIX)
     endif(APPLE)
 else(UNIX)
     set(jscre-cflags
-        /W0
+        /W1
     )
 endif(UNIX)
 
 string(REPLACE ";" " " jscre-cflags "${jscre-cflags}")
 
-# build --------------------------------------------------------------------------------------------
+# build ------------------------------------------------------------------------
 
 add_library(jscre STATIC
     ${jscre-src}
