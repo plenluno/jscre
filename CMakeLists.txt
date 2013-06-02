@@ -25,6 +25,7 @@ if(UNIX)
     if(APPLE)
         set(jscre-cflags
             ${jscre-cflags}
+            -Wno-null-conversion
             -Wno-null-dereference
         )
     endif(APPLE)
