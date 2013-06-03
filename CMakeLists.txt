@@ -22,13 +22,18 @@ if(UNIX)
         -fno-exceptions
     )
 
-    if(APPLE)
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         set(jscre-cflags
             ${jscre-cflags}
             -Wno-null-conversion
             -Wno-null-dereference
         )
-    endif(APPLE)
+    else(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        set(jscre-cflags
+            ${jscre-cflags}
+            -Wno-conversion-null
+        )
+    endif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 else(UNIX)
     set(jscre-cflags
         /W1
